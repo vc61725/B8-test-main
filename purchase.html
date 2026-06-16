@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B8 採購單 V6.5</title>
+    <link rel="stylesheet" href="css/purchase.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc =
+            'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+
+<body class="app-shell purchase-page">
+
+    <aside class="sidebar">
+        <a href="index.html" class="sidebar-logo">
+            <div class="sidebar-logo-icon">B8</div>
+            <span class="sidebar-logo-text">B8 核帳平台</span>
+        </a>
+        <nav class="sidebar-nav">
+            <a href="notice.html" class="sidebar-link">
+                <span class="sidebar-link-icon">📦</span>
+                Goods Receiving Notice
+            </a>
+            <a href="purchase.html" class="sidebar-link active">
+                <span class="sidebar-link-icon">🛒</span>
+                Purchase Order
+            </a>
+        </nav>
+        <p class="sidebar-version">B8 UI Refresh V6.5.1</p>
+    </aside>
+
+    <div class="main-wrapper">
+        <main class="dashboard">
+            <div class="box">
+
+                <header class="page-hero glass-card">
+                    <h1>Purchase Order（採購單）</h1>
+                    <p class="page-subtitle intro">上傳 PDF，轉換並產生採購單 Excel。</p>
+                </header>
+
+                <section class="stat-grid">
+                    <div class="stat-card">
+                        <span class="stat-label">商品主檔筆數</span>
+                        <div id="masterStatus" class="master-status stat-value stat-value-sm">正在載入商品主檔...</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">已選 PDF</span>
+                        <p class="stat-value">—</p>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">可匯入筆數</span>
+                        <p class="stat-value">—</p>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">未匹配筆數</span>
+                        <p class="stat-value">—</p>
+                    </div>
+                </section>
+
+                <section class="upload-card glass-card controls">
+                    <div class="drop-zone">
+                        <span class="drop-zone-icon">📄</span>
+                        <p class="drop-zone-title">拖曳或選擇 PDF 檔案</p>
+                        <p class="drop-zone-hint">支援多份 PDF 同時上傳（Batch PDF Merge）</p>
+                        <label class="file-label">
+                            選擇 PDF 檔案
+                            <input id="pdfFileInput" type="file" accept="application/pdf" multiple>
+                        </label>
+                    </div>
+                </section>
+
+                <section class="action-bar button-group">
+                    <button id="convertButton" class="btn-primary" type="button" disabled>開始轉換</button>
+                    <button id="downloadButton" class="btn-secondary" type="button" disabled>下載 Excel</button>
+                </section>
+
+                <div id="status" class="status">尚未上傳 PDF。</div>
+
+                <div id="previewContainer" class="preview-container"></div>
+
+                <div id="notFoundContainer" class="not-found-container"></div>
+
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <p>© 2025 B8 核帳平台</p>
+            <p>All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/purchase.js"></script>
+
+</body>
+
+</html>

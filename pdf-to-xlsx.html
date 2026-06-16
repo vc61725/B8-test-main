@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B8 PDF to XLSX V5 Stage 1</title>
+    <link rel="stylesheet" href="css/pdfToXlsx.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+
+<body>
+    <div class="pdf-to-xlsx-box">
+        <h1>B8 PDF 轉 XLSX</h1>
+        <p class="intro">上傳 PDF 檔案並將資料轉換成 Excel。請先點選「Convert」，之後在預覽表格確認內容，再按「Download result.xlsx」。</p>
+
+        <div class="controls">
+            <label class="file-label">
+                選擇 PDF 檔案
+                <input id="pdfFileInput" type="file" accept="application/pdf">
+            </label>
+
+            <div class="button-group">
+                <button id="convertButton" type="button" disabled>Convert</button>
+                <button id="downloadButton" type="button" disabled>Download result.xlsx</button>
+            </div>
+        </div>
+
+        <div id="status" class="status">尚未上傳 PDF。</div>
+
+        <div id="previewContainer" class="preview-container"></div>
+    </div>
+
+    <script src="js/pdfToXlsx.js"></script>
+</body>
+
+</html>

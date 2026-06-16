@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B8 入倉通知 V6.5</title>
+    <link rel="stylesheet" href="css/notice.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+
+<body class="app-shell notice-page">
+
+    <aside class="sidebar">
+        <a href="index.html" class="sidebar-logo">
+            <div class="sidebar-logo-icon">B8</div>
+            <span class="sidebar-logo-text">B8 核帳平台</span>
+        </a>
+        <nav class="sidebar-nav">
+            <a href="notice.html" class="sidebar-link active">
+                <span class="sidebar-link-icon">📦</span>
+                Goods Receiving Notice
+            </a>
+            <a href="purchase.html" class="sidebar-link">
+                <span class="sidebar-link-icon">🛒</span>
+                Purchase Order
+            </a>
+        </nav>
+        <p class="sidebar-version">B8 UI Refresh V6.5.2</p>
+    </aside>
+
+    <div class="main-wrapper">
+        <main class="dashboard">
+            <div class="box">
+
+                <header class="page-hero glass-card">
+                    <h1>Goods Receiving Notice（入倉通知）</h1>
+                    <p class="page-subtitle">上傳全台物流 CSV，比對商品主檔後產生入倉通知。表格可直接複製貼至 Outlook。</p>
+                </header>
+
+                <section class="stat-grid">
+                    <div class="stat-card">
+                        <span class="stat-label">商品主檔</span>
+                        <p class="stat-value stat-value-sm">已載入 B8 商品主檔</p>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">已選 CSV</span>
+                        <p class="stat-value">—</p>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">轉換筆數</span>
+                        <p class="stat-value">—</p>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">未匹配筆數</span>
+                        <p class="stat-value">—</p>
+                    </div>
+                </section>
+
+                <section class="form-section glass-card tool-section">
+                    <h3>TDC 查詢測試</h3>
+                    <div class="form-row">
+                        <input type="text" id="tdcInput" class="glass-input" placeholder="輸入 TDC">
+                        <button type="button" class="btn-secondary" onclick="searchTDC()">查詢</button>
+                    </div>
+                </section>
+
+                <section class="upload-card glass-card">
+                    <div class="drop-zone">
+                        <span class="drop-zone-icon">📦</span>
+                        <p class="drop-zone-title">上傳全台物流 CSV</p>
+                        <p class="drop-zone-hint">選擇 CSV 檔案後點擊開始轉換</p>
+                        <label class="file-label">
+                            選擇 CSV 檔案
+                            <input type="file" id="csvFile" accept=".csv">
+                        </label>
+                    </div>
+                </section>
+
+                <section class="action-bar notice-action-bar">
+                    <button type="button" class="btn-primary" onclick="convertCSV()">開始轉換</button>
+                </section>
+
+                <section class="result-section">
+                    <div id="result">載入中...</div>
+                </section>
+
+                <div id="vendorNotifications"></div>
+
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <p>© 2025 B8 核帳平台</p>
+            <p>All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/notice.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,208 @@
+/* B8 UI Refresh V6.5.2 — 入倉通知 */
+
+@import url("common.css");
+
+.box {
+    display: contents;
+}
+
+/* ===== 操作按鈕（僅「開始轉換」） ===== */
+
+.notice-page .notice-action-bar {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0;
+    margin-top: 0;
+    margin-bottom: 24px;
+}
+
+.notice-page .notice-action-bar .btn-primary {
+    width: auto;
+    min-width: 140px;
+}
+
+@media (max-width: 768px) {
+    .notice-page .notice-action-bar {
+        flex-direction: row;
+    }
+
+    .notice-page .notice-action-bar .btn-primary {
+        width: auto;
+    }
+}
+
+#vendorNotifications {
+    margin-top: 0;
+}
+
+.tool-section {
+    margin-bottom: 0;
+}
+
+/* 結果區：不使用 glass / backdrop，避免影響複製貼上 */
+.result-section {
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    background-color: #ffffff;
+    border: 1px solid rgba(126, 200, 227, 0.3);
+    border-radius: var(--radius-lg);
+}
+
+#result {
+    margin-top: 0;
+    border-top: none;
+    padding-top: 0;
+    font-family: Arial, "Microsoft JhengHei", sans-serif;
+    font-size: 14px;
+    color: #2c3e50;
+}
+
+#result h3 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: Arial, "Microsoft JhengHei", sans-serif;
+    color: #2c3e50;
+}
+
+#result hr {
+    border: none;
+    border-top: 1px solid #d0e8f2;
+    margin: 24px 0;
+}
+
+#result b {
+    font-family: Arial, "Microsoft JhengHei", sans-serif;
+}
+
+/* ===== Outlook 相容表格（#result 產生內容） ===== */
+/*
+ * 僅使用 table / tr / td / th + 基礎屬性
+ * 禁止：backdrop-filter、sticky、box-shadow、flex/grid table
+ */
+#result table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    min-width: 100%;
+    margin: 16px 0;
+    font-family: Arial, "Microsoft JhengHei", sans-serif;
+    font-size: 14px;
+    background-color: #ffffff;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
+}
+
+#result thead {
+    position: static;
+}
+
+#result th {
+    padding: 10px 12px;
+    text-align: center;
+    background-color: #DFF4FF;
+    color: #3B6C8E;
+    font-size: 14px;
+    font-family: Arial, "Microsoft JhengHei", sans-serif;
+    font-weight: 600;
+    border: 1px solid #b8dce8;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
+    filter: none;
+}
+
+#result td {
+    padding: 10px 12px;
+    text-align: center;
+    background-color: #ffffff;
+    color: #2c3e50;
+    font-size: 14px;
+    font-family: Arial, "Microsoft JhengHei", sans-serif;
+    border: 1px solid #d0e8f2;
+    word-break: break-word;
+    white-space: normal;
+    backdrop-filter: none;
+    box-shadow: none;
+    filter: none;
+}
+
+#result tr {
+    background-color: #ffffff;
+}
+
+#result tbody tr:hover td {
+    background-color: #ffffff;
+}
+
+/* 未匹配區塊標題（紅色提示） */
+#result h3[style*="color:red"],
+#result h3[style*="color: red"] {
+    color: #b54545 !important;
+}
+
+#result table + table th,
+#result hr + h3 + table th {
+    background-color: #fdecee;
+    color: #9b3a3a;
+    border-color: #f0caca;
+}
+
+/* ===== 廠商郵件區（UI 卡片，非 Outlook 表格） ===== */
+
+.vendor-notification {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 24px 28px;
+    margin-top: 20px;
+    box-shadow: var(--shadow);
+}
+
+.vendor-notification h3 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.vendor-notification .vendor-detail {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.email-body {
+    font-family: Consolas, "Courier New", monospace;
+    background-color: #f7fafc;
+    padding: 16px;
+    width: 100%;
+    min-height: 260px;
+    border: 1px solid rgba(126, 200, 227, 0.35);
+    border-radius: var(--radius-sm);
+    margin-top: 14px;
+    resize: vertical;
+    overflow: auto;
+    white-space: pre;
+    font-size: 13px;
+    color: var(--text-primary);
+}
+
+.copy-email-button {
+    margin-top: 14px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--radius-sm);
+    background: var(--gradient-btn);
+    color: #fff;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}

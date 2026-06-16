@@ -1,0 +1,128 @@
+/* B8 UI Refresh V6.5 — 採購單 */
+
+@import url("common.css");
+
+.box {
+    display: contents;
+}
+
+.controls {
+    display: contents;
+}
+
+.button-group {
+    display: contents;
+}
+
+.stat-card .master-status {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.stat-card .master-status.master-status-ok {
+    color: #2a6b7f;
+}
+
+.stat-card .master-status.master-status-error {
+    color: #9b3a3a;
+}
+
+/* ===== Purchase 預覽表格（Glass Dashboard） ===== */
+
+.preview-container,
+.not-found-container {
+    margin-bottom: 28px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.preview-container h3,
+.not-found-heading {
+    margin: 0 0 16px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.not-found-heading {
+    color: #b54545;
+}
+
+.purchase-page .table-wrapper {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid rgba(126, 200, 227, 0.25);
+    box-shadow: var(--shadow-soft);
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.purchase-page .preview-container table,
+.purchase-page .not-found-container table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 960px;
+}
+
+.purchase-page .preview-container thead,
+.purchase-page .not-found-container thead {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.purchase-page .preview-container th,
+.purchase-page .preview-container td,
+.purchase-page .not-found-container th,
+.purchase-page .not-found-container td {
+    padding: 14px 16px;
+    text-align: center;
+    word-break: break-word;
+    border-bottom: 1px solid rgba(126, 200, 227, 0.15);
+}
+
+.purchase-page .preview-container th {
+    background-color: #DFF4FF;
+    color: #3B6C8E;
+    font-weight: 600;
+    font-size: 13px;
+    font-family: var(--font-stack);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.purchase-page .preview-container td {
+    background-color: #ffffff;
+    color: var(--text-primary);
+    font-size: 14px;
+    font-family: var(--font-stack);
+}
+
+.purchase-page .preview-container tbody tr:hover td {
+    background-color: #f0faff;
+}
+
+.purchase-page .not-found-container th {
+    background-color: #fdecee;
+    color: #9b3a3a;
+    font-weight: 600;
+    font-size: 13px;
+    font-family: var(--font-stack);
+}
+
+.purchase-page .not-found-container td {
+    background-color: #ffffff;
+    color: var(--text-primary);
+    font-size: 14px;
+    font-family: var(--font-stack);
+}
+
+.purchase-page .preview-container tbody tr:last-child td,
+.purchase-page .not-found-container tbody tr:last-child td {
+    border-bottom: none;
+}

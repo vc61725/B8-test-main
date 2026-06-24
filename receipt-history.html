@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>驗收單查詢 V6.6</title>
+    <link rel="stylesheet" href="css/receipt-history.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body class="app-shell receipt-history-page">
+
+    <aside class="sidebar">
+        <a href="index.html" class="sidebar-logo">
+            <div class="sidebar-logo-icon">B8</div>
+            <span class="sidebar-logo-text">B8 核帳平台</span>
+        </a>
+        <nav class="sidebar-nav">
+            <a href="notice.html" class="sidebar-link">
+                <span class="sidebar-link-icon">📦</span>
+                入倉通知單
+            </a>
+            <a href="purchase.html" class="sidebar-link">
+                <span class="sidebar-link-icon">🛒</span>
+                全台驗收轉日翊採購單
+            </a>
+            <a href="receipt-history.html" class="sidebar-link active">
+                <span class="sidebar-link-icon">🔍</span>
+                驗收單查詢
+            </a>
+        </nav>
+        <p class="sidebar-version">B8 UI Refresh V6.6</p>
+    </aside>
+
+    <div class="main-wrapper">
+        <main class="dashboard">
+            <div class="box">
+
+                <header class="page-hero glass-card">
+                    <h1>驗收單查詢</h1>
+                    <p class="page-subtitle">依日期區間查詢已儲存的採購驗收紀錄，相同採購單僅顯示一次。</p>
+                </header>
+
+                <section class="form-section glass-card">
+                    <h3>查詢條件</h3>
+                    <div class="form-row">
+                        <label class="form-label">
+                            開始日期
+                            <input type="date" id="dateFrom" class="glass-input">
+                        </label>
+                        <label class="form-label">
+                            結束日期
+                            <input type="date" id="dateTo" class="glass-input">
+                        </label>
+                        <button id="queryButton" type="button" class="btn-primary">查詢</button>
+                    </div>
+                </section>
+
+                <div id="queryStatus" class="status" style="display:none;"></div>
+
+                <div id="resultContainer"></div>
+
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <p>© 2025 B8 核帳平台</p>
+            <p>All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/receipt-history.js"></script>
+
+</body>
+
+</html>
